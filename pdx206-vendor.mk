@@ -198,6 +198,7 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/product/vendor_overlay/29/lib/modules/tspp.ko:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/29/lib/modules/tspp.ko
 
 PRODUCT_PACKAGES += \
+    libantradio \
     com.quicinc.cne.api@1.0 \
     com.quicinc.cne.api@1.1 \
     com.quicinc.cne.constants@1.0 \
