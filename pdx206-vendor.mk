@@ -19,6 +19,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/product/bin/dpmd:$(TARGET_COPY_OUT_PRODUCT)/bin/dpmd \
+    vendor/sony/pdx206/proprietary/product/bin/taimport:$(TARGET_COPY_OUT_PRODUCT)/bin/taimport \
     vendor/sony/pdx206/proprietary/product/etc/dpm/dpm.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/dpm/dpm.conf \
     vendor/sony/pdx206/proprietary/product/etc/init/dpmd.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/dpmd.rc \
     vendor/sony/pdx206/proprietary/product/etc/permissions/com.qti.dpmframework.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.qti.dpmframework.xml \
@@ -288,7 +289,7 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/bin/hw/android.hardware.authsecret@1.0-service-qti:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.authsecret@1.0-service-qti \
     vendor/sony/pdx206/proprietary/vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-rbs:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-rbs \
     vendor/sony/pdx206/proprietary/vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.bluetooth@1.0-service-qti \
-    vendor/sony/pdx206/proprietary/vendor/bin/hw/android.hardware.drm@1.1-service.widevine:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.drm@1.1-service.widevine \
+    vendor/sony/pdx206/proprietary/vendor/bin/hw/android.hardware.drm@1.2-service.widevine:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.drm@1.2-service.widevine \
     vendor/sony/pdx206/proprietary/vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.gatekeeper@1.0-service-qti \
     vendor/sony/pdx206/proprietary/vendor/bin/hw/android.hardware.gnss@2.0-service-qti:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.gnss@2.0-service-qti \
     vendor/sony/pdx206/proprietary/vendor/bin/hw/android.hardware.keymaster@4.0-service-qti:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.keymaster@4.0-service-qti \
@@ -309,7 +310,7 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/bin/hw/vendor.qti.hardware.soter@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.qti.hardware.soter@1.0-service \
     vendor/sony/pdx206/proprietary/vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti \
     vendor/sony/pdx206/proprietary/vendor/bin/hw/vendor.semc.hardware.display@1.2-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.semc.hardware.display@1.2-service \
-    vendor/sony/pdx206/proprietary/vendor/bin/hw/vendor.semc.hardware.secd@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.semc.hardware.secd@1.0-service \
+    vendor/sony/pdx206/proprietary/vendor/bin/hw/vendor.semc.hardware.secd@1.1-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.semc.hardware.secd@1.1-service \
     vendor/sony/pdx206/proprietary/vendor/bin/hw/vendor.semc.hardware.thermal@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.semc.hardware.thermal@1.0-service \
     vendor/sony/pdx206/proprietary/vendor/bin/hw/vendor.semc.system.idd@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.semc.system.idd@1.0-service \
     vendor/sony/pdx206/proprietary/vendor/bin/hw/vendor.somc.hardware.camera.provider@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.somc.hardware.camera.provider@1.0-service \
@@ -349,7 +350,6 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/bin/subsystem_ramdump:$(TARGET_COPY_OUT_VENDOR)/bin/subsystem_ramdump \
     vendor/sony/pdx206/proprietary/vendor/bin/ta_qmi_service:$(TARGET_COPY_OUT_VENDOR)/bin/ta_qmi_service \
     vendor/sony/pdx206/proprietary/vendor/bin/tad:$(TARGET_COPY_OUT_VENDOR)/bin/tad \
-    vendor/sony/pdx206/proprietary/vendor/bin/taimport_vendor:$(TARGET_COPY_OUT_VENDOR)/bin/taimport_vendor \
     vendor/sony/pdx206/proprietary/vendor/bin/tftp_server:$(TARGET_COPY_OUT_VENDOR)/bin/tftp_server \
     vendor/sony/pdx206/proprietary/vendor/bin/thermal-engine:$(TARGET_COPY_OUT_VENDOR)/bin/thermal-engine \
     vendor/sony/pdx206/proprietary/vendor/bin/time_daemon:$(TARGET_COPY_OUT_VENDOR)/bin/time_daemon \
@@ -503,451 +503,435 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/camera/CHI08BS1/rpmp_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/CHI08BS1/rpmp_ipe_tf20_full.dat \
     vendor/sony/pdx206/proprietary/vendor/camera/CHI08BS1/rpmp_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/CHI08BS1/rpmp_ipe_upscale20.dat \
     vendor/sony/pdx206/proprietary/vendor/camera/CHI08BS1/scene_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/CHI08BS1/scene_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_0_EEPROM_FW_DATA_1_0x165c1010.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_0_EEPROM_FW_DATA_1_0x165c1010.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_0_EEPROM_FW_DATA_1_0x165c4070.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_0_EEPROM_FW_DATA_1_0x165c4070.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_0_EEPROM_FW_DATA_2_0x165c1010.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_0_EEPROM_FW_DATA_2_0x165c1010.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_0_EEPROM_FW_DATA_2_0x165c4070.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_0_EEPROM_FW_DATA_2_0x165c4070.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_0_EEPROM_FW_DATA_4_0x165c1010.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_0_EEPROM_FW_DATA_4_0x165c1010.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_0_EEPROM_FW_DATA_4_0x165c4070.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_0_EEPROM_FW_DATA_4_0x165c4070.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_0_EEPROM_FW_DATA_5_0x165c1010.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_0_EEPROM_FW_DATA_5_0x165c1010.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_0_EEPROM_FW_DATA_5_0x165c4070.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_0_EEPROM_FW_DATA_5_0x165c4070.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_1_EEPROM_FW_DATA_1_0x165d1010.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_1_EEPROM_FW_DATA_1_0x165d1010.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_1_EEPROM_FW_DATA_1_0x165d4070.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_1_EEPROM_FW_DATA_1_0x165d4070.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_1_EEPROM_FW_DATA_2_0x165d1010.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_1_EEPROM_FW_DATA_2_0x165d1010.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_1_EEPROM_FW_DATA_2_0x165d4070.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_1_EEPROM_FW_DATA_2_0x165d4070.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_1_EEPROM_FW_DATA_4_0x165d1010.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_1_EEPROM_FW_DATA_4_0x165d1010.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_1_EEPROM_FW_DATA_4_0x165d4070.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_1_EEPROM_FW_DATA_4_0x165d4070.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_1_EEPROM_FW_DATA_5_0x165d1010.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_1_EEPROM_FW_DATA_5_0x165d1010.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/EIGER_1_EEPROM_FW_DATA_5_0x165d4070.dat:$(TARGET_COPY_OUT_VENDOR)/camera/EIGER_1_EEPROM_FW_DATA_5_0x165d4070.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/bokeh_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/bokeh_comp.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/color_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/color_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/dataflow.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/dataflow.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/exposure_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/exposure_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/exposure_ctrl_diagram.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/exposure_ctrl_diagram.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/eye_stabilizer.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/eye_stabilizer.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/face_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/face_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/face_detector_soda.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/face_detector_soda.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/flicker_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/flicker_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/food_comp_yummy.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/food_comp_yummy.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/food_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/food_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_bps_gamma16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_bps_gamma16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_fusion_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_fusion_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_abf40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_abf40_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_bincorr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_bincorr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_bls12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_cc13.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_cc13.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_cst12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_cst12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_demosaic36.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_gamma16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_gamma16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_gtm10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_gtm10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_hdr30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_hdr30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_linearization34.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_lsc40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_lsc40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ife_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ife_pdpc30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_anr10_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_anr10_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_anr10_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_anr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_anr10_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_asf30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_cc13.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_cc13.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_cs20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_cst12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_cst12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_cv12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_cv12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_gamma15.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_gamma15.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_gra10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_hnr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_hnr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_lenr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_ltm14.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_ltm14.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_sce11.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_sce11.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_tdl10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_tdl10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_tf20_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_tf20_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_tf20_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_tf20_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_tf20_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_ipe_upscale20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hal_ctrl_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hal_ctrl_platform_nree.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/hdr_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/hdr_comp.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/idt_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/idt_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/image_conv.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/image_conv.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/image_conv_cheesescone.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/image_conv_cheesescone.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/image_conv_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/image_conv_ipe_asf30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/image_conv_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/image_conv_ipe_cs20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/image_conv_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/image_conv_ipe_gra10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/image_conv_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/image_conv_ipe_upscale20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/image_conv_marble.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/image_conv_marble.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/image_conv_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/image_conv_platform_nree.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/image_conv_raisin.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/image_conv_raisin.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/image_conv_spica.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/image_conv_spica.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/lens_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/lens_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/lens_ctrl_common.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/lens_ctrl_common.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/main_subject_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/main_subject_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/motion_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/motion_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/motion_detector_sumomo.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/motion_detector_sumomo.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/motion_estimation.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/motion_estimation.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/object_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/object_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/object_tracker.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/object_tracker.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/prc_image_conv.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/prc_image_conv.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_conv_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_conv_bps_abf40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_conv_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_conv_bps_abf40_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_conv_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_conv_bps_bls12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_conv_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_conv_bps_gic30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_conv_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_conv_bps_linearization34.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_conv_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_conv_bps_pdpc30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_conv_parisbrest.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_conv_parisbrest.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_conv_platform.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_conv_platform.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_conv_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_conv_platform_nree.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_bps_abf40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_bps_abf40_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_bps_bls12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_bps_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_bps_demosaic36.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_bps_gic30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_bps_linearization34.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_bps_pdpc30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_anr10_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_anr10_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_anr10_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_anr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_anr10_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_asf30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_cs20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_gra10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_hnr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_hnr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_lenr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_tf20_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_tf20_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_tf20_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_tf20_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_tf20_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_ipe_upscale20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_platform.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_platform.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/raw_proc_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/raw_proc_platform_nree.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_bps_abf40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_bps_abf40_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_bps_bls12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_bps_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_bps_demosaic36.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_bps_gic30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_bps_linearization34.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_bps_pdpc30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_ipe_anr10_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_ipe_anr10_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_ipe_anr10_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_ipe_anr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_ipe_anr10_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_ipe_tf20_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_ipe_tf20_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_ipe_tf20_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_ipe_tf20_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmb_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmb_ipe_tf20_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_anr10_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_anr10_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_anr10_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_anr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_anr10_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_asf30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_cs20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_gra10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_hnr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_hnr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_lenr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_tf20_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_tf20_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_tf20_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_tf20_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_tf20_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/rpmp_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/rpmp_ipe_upscale20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC0/scene_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC0/scene_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/bokeh_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/bokeh_comp.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/color_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/color_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/dataflow.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/dataflow.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/exposure_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/exposure_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/exposure_ctrl_diagram.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/exposure_ctrl_diagram.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/eye_stabilizer.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/eye_stabilizer.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/face_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/face_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/face_detector_soda.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/face_detector_soda.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/flicker_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/flicker_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/food_comp_yummy.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/food_comp_yummy.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/food_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/food_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_bps_gamma16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_bps_gamma16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_fusion_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_fusion_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_abf40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_abf40_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_bincorr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_bincorr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_bls12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_cc13.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_cc13.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_cst12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_cst12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_demosaic36.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_gamma16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_gamma16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_gtm10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_gtm10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_hdr30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_hdr30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_linearization34.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_lsc40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_lsc40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ife_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ife_pdpc30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_anr10_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_anr10_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_anr10_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_anr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_anr10_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_asf30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_cc13.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_cc13.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_cs20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_cst12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_cst12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_cv12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_cv12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_gamma15.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_gamma15.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_gra10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_hnr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_hnr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_lenr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_ltm14.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_ltm14.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_sce11.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_sce11.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_tdl10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_tdl10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_tf20_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_tf20_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_tf20_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_tf20_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_tf20_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_ipe_upscale20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hal_ctrl_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hal_ctrl_platform_nree.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/hdr_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/hdr_comp.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/idt_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/idt_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/image_conv.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/image_conv.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/image_conv_cheesescone.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/image_conv_cheesescone.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/image_conv_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/image_conv_ipe_asf30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/image_conv_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/image_conv_ipe_cs20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/image_conv_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/image_conv_ipe_gra10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/image_conv_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/image_conv_ipe_upscale20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/image_conv_marble.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/image_conv_marble.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/image_conv_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/image_conv_platform_nree.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/image_conv_raisin.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/image_conv_raisin.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/image_conv_spica.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/image_conv_spica.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/lens_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/lens_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/lens_ctrl_common.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/lens_ctrl_common.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/main_subject_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/main_subject_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/motion_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/motion_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/motion_detector_sumomo.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/motion_detector_sumomo.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/motion_estimation.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/motion_estimation.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/object_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/object_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/object_tracker.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/object_tracker.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/prc_image_conv.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/prc_image_conv.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_conv_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_conv_bps_abf40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_conv_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_conv_bps_abf40_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_conv_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_conv_bps_bls12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_conv_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_conv_bps_gic30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_conv_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_conv_bps_linearization34.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_conv_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_conv_bps_pdpc30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_conv_parisbrest.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_conv_parisbrest.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_conv_platform.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_conv_platform.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_conv_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_conv_platform_nree.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_bps_abf40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_bps_abf40_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_bps_bls12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_bps_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_bps_demosaic36.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_bps_gic30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_bps_linearization34.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_bps_pdpc30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_anr10_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_anr10_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_anr10_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_anr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_anr10_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_asf30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_cs20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_gra10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_hnr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_hnr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_lenr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_tf20_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_tf20_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_tf20_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_tf20_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_tf20_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_ipe_upscale20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_platform.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_platform.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/raw_proc_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/raw_proc_platform_nree.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_bps_abf40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_bps_abf40_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_bps_bls12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_bps_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_bps_demosaic36.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_bps_gic30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_bps_linearization34.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_bps_pdpc30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_ipe_anr10_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_ipe_anr10_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_ipe_anr10_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_ipe_anr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_ipe_anr10_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_ipe_tf20_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_ipe_tf20_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_ipe_tf20_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_ipe_tf20_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmb_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmb_ipe_tf20_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_anr10_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_anr10_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_anr10_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_anr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_anr10_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_asf30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_cs20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_gra10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_hnr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_hnr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_lenr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_tf20_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_tf20_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_tf20_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_tf20_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_tf20_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/rpmp_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/rpmp_ipe_upscale20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS5/scene_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS5/scene_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/bokeh_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/bokeh_comp.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/color_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/color_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/dataflow.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/dataflow.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/exposure_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/exposure_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/exposure_ctrl_diagram.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/exposure_ctrl_diagram.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/eye_stabilizer.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/eye_stabilizer.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/face_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/face_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/face_detector_soda.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/face_detector_soda.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/flicker_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/flicker_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/food_comp_yummy.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/food_comp_yummy.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/food_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/food_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_bps_gamma16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_bps_gamma16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_fusion_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_fusion_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_abf40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_abf40_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_bincorr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_bincorr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_bls12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_cc13.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_cc13.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_cst12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_cst12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_demosaic36.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_gamma16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_gamma16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_gtm10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_gtm10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_hdr30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_hdr30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_linearization34.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_lsc40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_lsc40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ife_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ife_pdpc30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_anr10_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_anr10_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_anr10_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_anr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_anr10_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_asf30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_cc13.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_cc13.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_cs20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_cst12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_cst12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_cv12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_cv12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_gamma15.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_gamma15.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_gra10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_hnr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_hnr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_lenr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_ltm14.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_ltm14.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_sce11.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_sce11.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_tdl10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_tdl10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_tf20_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_tf20_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_tf20_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_tf20_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_tf20_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_ipe_upscale20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hal_ctrl_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hal_ctrl_platform_nree.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/hdr_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/hdr_comp.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/idt_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/idt_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/image_conv.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/image_conv.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/image_conv_cheesescone.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/image_conv_cheesescone.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/image_conv_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/image_conv_ipe_asf30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/image_conv_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/image_conv_ipe_cs20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/image_conv_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/image_conv_ipe_gra10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/image_conv_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/image_conv_ipe_upscale20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/image_conv_marble.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/image_conv_marble.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/image_conv_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/image_conv_platform_nree.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/image_conv_raisin.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/image_conv_raisin.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/image_conv_spica.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/image_conv_spica.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/lens_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/lens_ctrl.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/lens_ctrl_common.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/lens_ctrl_common.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/main_subject_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/main_subject_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/motion_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/motion_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/motion_detector_sumomo.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/motion_detector_sumomo.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/motion_estimation.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/motion_estimation.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/object_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/object_detector.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/object_tracker.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/object_tracker.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/prc_image_conv.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/prc_image_conv.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_conv_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_conv_bps_abf40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_conv_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_conv_bps_abf40_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_conv_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_conv_bps_bls12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_conv_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_conv_bps_gic30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_conv_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_conv_bps_linearization34.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_conv_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_conv_bps_pdpc30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_conv_parisbrest.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_conv_parisbrest.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_conv_platform.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_conv_platform.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_conv_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_conv_platform_nree.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_bps_abf40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_bps_abf40_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_bps_bls12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_bps_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_bps_demosaic36.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_bps_gic30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_bps_linearization34.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_bps_pdpc30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_anr10_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_anr10_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_anr10_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_anr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_anr10_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_asf30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_cs20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_gra10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_hnr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_hnr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_lenr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_tf20_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_tf20_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_tf20_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_tf20_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_tf20_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_ipe_upscale20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_platform.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_platform.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/raw_proc_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/raw_proc_platform_nree.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_bps_abf40.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_bps_abf40_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_bps_bls12.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_bps_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_bps_demosaic36.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_bps_gic30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_bps_linearization34.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_bps_pdpc30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_ipe_anr10_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_ipe_anr10_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_ipe_anr10_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_ipe_anr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_ipe_anr10_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_ipe_tf20_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_ipe_tf20_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_ipe_tf20_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_ipe_tf20_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmb_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmb_ipe_tf20_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_anr10_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_anr10_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_anr10_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_anr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_anr10_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_asf30.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_cs20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_gra10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_hnr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_hnr10_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_lenr10.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_tf20_dc04.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_tf20_dc16.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_tf20_dc64.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_tf20_disable.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_tf20_full.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/rpmp_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/rpmp_ipe_upscale20.dat \
-    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS0/scene_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS0/scene_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/bokeh_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/bokeh_comp.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/color_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/color_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/dataflow.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/dataflow.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/exposure_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/exposure_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/exposure_ctrl_diagram.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/exposure_ctrl_diagram.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/eye_stabilizer.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/eye_stabilizer.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/face_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/face_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/face_detector_soda.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/face_detector_soda.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/flicker_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/flicker_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/food_comp_yummy.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/food_comp_yummy.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/food_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/food_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_bps_gamma16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_bps_gamma16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_fusion_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_fusion_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_abf40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_abf40_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_bincorr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_bincorr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_bls12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_cc13.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_cc13.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_cst12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_cst12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_demosaic36.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_gamma16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_gamma16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_gtm10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_gtm10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_hdr30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_hdr30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_linearization34.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_lsc40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_lsc40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ife_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ife_pdpc30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_anr10_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_anr10_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_anr10_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_anr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_anr10_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_asf30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_cc13.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_cc13.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_cs20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_cst12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_cst12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_cv12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_cv12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_gamma15.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_gamma15.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_gra10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_hnr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_hnr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_lenr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_ltm14.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_ltm14.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_sce11.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_sce11.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_tdl10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_tdl10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_tf20_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_tf20_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_tf20_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_tf20_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_tf20_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_ipe_upscale20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hal_ctrl_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hal_ctrl_platform_nree.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/hdr_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/hdr_comp.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/idt_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/idt_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/image_conv.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/image_conv.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/image_conv_cheesescone.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/image_conv_cheesescone.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/image_conv_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/image_conv_ipe_asf30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/image_conv_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/image_conv_ipe_cs20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/image_conv_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/image_conv_ipe_gra10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/image_conv_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/image_conv_ipe_upscale20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/image_conv_marble.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/image_conv_marble.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/image_conv_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/image_conv_platform_nree.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/image_conv_raisin.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/image_conv_raisin.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/image_conv_spica.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/image_conv_spica.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/lens_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/lens_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/lens_ctrl_common.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/lens_ctrl_common.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/main_subject_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/main_subject_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/motion_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/motion_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/motion_detector_sumomo.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/motion_detector_sumomo.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/motion_estimation.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/motion_estimation.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/object_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/object_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/object_tracker.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/object_tracker.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/prc_image_conv.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/prc_image_conv.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_conv_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_conv_bps_abf40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_conv_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_conv_bps_abf40_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_conv_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_conv_bps_bls12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_conv_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_conv_bps_gic30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_conv_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_conv_bps_linearization34.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_conv_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_conv_bps_pdpc30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_conv_parisbrest.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_conv_parisbrest.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_conv_platform.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_conv_platform.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_conv_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_conv_platform_nree.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_bps_abf40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_bps_abf40_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_bps_bls12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_bps_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_bps_demosaic36.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_bps_gic30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_bps_linearization34.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_bps_pdpc30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_anr10_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_anr10_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_anr10_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_anr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_anr10_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_asf30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_cs20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_gra10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_hnr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_hnr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_lenr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_tf20_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_tf20_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_tf20_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_tf20_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_tf20_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_ipe_upscale20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_platform.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_platform.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/raw_proc_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/raw_proc_platform_nree.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_bps_abf40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_bps_abf40_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_bps_bls12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_bps_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_bps_demosaic36.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_bps_gic30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_bps_linearization34.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_bps_pdpc30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_ipe_anr10_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_ipe_anr10_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_ipe_anr10_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_ipe_anr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_ipe_anr10_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_ipe_tf20_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_ipe_tf20_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_ipe_tf20_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_ipe_tf20_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmb_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmb_ipe_tf20_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_anr10_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_anr10_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_anr10_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_anr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_anr10_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_asf30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_cs20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_gra10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_hnr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_hnr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_lenr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_tf20_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_tf20_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_tf20_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_tf20_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_tf20_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/rpmp_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/rpmp_ipe_upscale20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BC1/scene_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BC1/scene_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/bokeh_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/bokeh_comp.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/color_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/color_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/dataflow.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/dataflow.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/exposure_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/exposure_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/exposure_ctrl_diagram.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/exposure_ctrl_diagram.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/eye_stabilizer.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/eye_stabilizer.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/face_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/face_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/face_detector_soda.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/face_detector_soda.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/flicker_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/flicker_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/food_comp_yummy.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/food_comp_yummy.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/food_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/food_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_bps_gamma16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_bps_gamma16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_fusion_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_fusion_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_abf40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_abf40_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_bincorr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_bincorr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_bls12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_cc13.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_cc13.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_cst12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_cst12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_demosaic36.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_gamma16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_gamma16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_gtm10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_gtm10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_hdr30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_hdr30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_linearization34.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_lsc40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_lsc40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ife_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ife_pdpc30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_anr10_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_anr10_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_anr10_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_anr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_anr10_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_asf30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_cc13.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_cc13.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_cs20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_cst12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_cst12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_cv12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_cv12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_gamma15.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_gamma15.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_gra10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_hnr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_hnr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_lenr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_ltm14.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_ltm14.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_sce11.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_sce11.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_tdl10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_tdl10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_tf20_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_tf20_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_tf20_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_tf20_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_tf20_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_ipe_upscale20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hal_ctrl_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hal_ctrl_platform_nree.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/hdr_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/hdr_comp.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/idt_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/idt_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/image_conv.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/image_conv.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/image_conv_cheesescone.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/image_conv_cheesescone.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/image_conv_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/image_conv_ipe_asf30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/image_conv_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/image_conv_ipe_cs20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/image_conv_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/image_conv_ipe_gra10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/image_conv_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/image_conv_ipe_upscale20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/image_conv_marble.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/image_conv_marble.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/image_conv_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/image_conv_platform_nree.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/image_conv_raisin.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/image_conv_raisin.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/image_conv_spica.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/image_conv_spica.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/lens_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/lens_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/lens_ctrl_common.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/lens_ctrl_common.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/main_subject_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/main_subject_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/motion_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/motion_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/motion_detector_sumomo.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/motion_detector_sumomo.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/motion_estimation.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/motion_estimation.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/object_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/object_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/object_tracker.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/object_tracker.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/prc_image_conv.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/prc_image_conv.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_conv_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_conv_bps_abf40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_conv_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_conv_bps_abf40_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_conv_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_conv_bps_bls12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_conv_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_conv_bps_gic30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_conv_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_conv_bps_linearization34.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_conv_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_conv_bps_pdpc30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_conv_parisbrest.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_conv_parisbrest.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_conv_platform.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_conv_platform.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_conv_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_conv_platform_nree.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_bps_abf40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_bps_abf40_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_bps_bls12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_bps_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_bps_demosaic36.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_bps_gic30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_bps_linearization34.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_bps_pdpc30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_anr10_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_anr10_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_anr10_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_anr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_anr10_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_asf30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_cs20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_gra10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_hnr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_hnr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_lenr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_tf20_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_tf20_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_tf20_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_tf20_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_tf20_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_ipe_upscale20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_platform.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_platform.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/raw_proc_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/raw_proc_platform_nree.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_bps_abf40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_bps_abf40_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_bps_bls12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_bps_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_bps_demosaic36.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_bps_gic30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_bps_linearization34.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_bps_pdpc30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_ipe_anr10_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_ipe_anr10_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_ipe_anr10_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_ipe_anr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_ipe_anr10_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_ipe_tf20_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_ipe_tf20_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_ipe_tf20_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_ipe_tf20_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmb_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmb_ipe_tf20_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_anr10_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_anr10_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_anr10_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_anr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_anr10_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_asf30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_cs20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_gra10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_hnr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_hnr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_lenr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_tf20_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_tf20_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_tf20_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_tf20_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_tf20_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/rpmp_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/rpmp_ipe_upscale20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM12BS6/scene_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM12BS6/scene_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/bokeh_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/bokeh_comp.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/color_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/color_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/dataflow.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/dataflow.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/exposure_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/exposure_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/exposure_ctrl_diagram.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/exposure_ctrl_diagram.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/eye_stabilizer.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/eye_stabilizer.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/face_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/face_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/face_detector_soda.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/face_detector_soda.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/flicker_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/flicker_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/food_comp_yummy.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/food_comp_yummy.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/food_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/food_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_bps_gamma16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_bps_gamma16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_fusion_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_fusion_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_abf40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_abf40_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_bincorr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_bincorr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_bls12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_cc13.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_cc13.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_cst12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_cst12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_demosaic36.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_gamma16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_gamma16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_gtm10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_gtm10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_hdr30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_hdr30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_linearization34.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_lsc40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_lsc40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ife_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ife_pdpc30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_anr10_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_anr10_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_anr10_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_anr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_anr10_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_asf30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_cc13.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_cc13.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_cs20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_cst12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_cst12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_cv12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_cv12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_gamma15.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_gamma15.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_gra10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_hnr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_hnr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_lenr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_ltm14.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_ltm14.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_sce11.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_sce11.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_tdl10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_tdl10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_tf20_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_tf20_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_tf20_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_tf20_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_tf20_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_ipe_upscale20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hal_ctrl_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hal_ctrl_platform_nree.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/hdr_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/hdr_comp.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/idt_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/idt_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/image_conv.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/image_conv.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/image_conv_cheesescone.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/image_conv_cheesescone.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/image_conv_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/image_conv_ipe_asf30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/image_conv_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/image_conv_ipe_cs20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/image_conv_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/image_conv_ipe_gra10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/image_conv_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/image_conv_ipe_upscale20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/image_conv_marble.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/image_conv_marble.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/image_conv_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/image_conv_platform_nree.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/image_conv_raisin.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/image_conv_raisin.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/image_conv_spica.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/image_conv_spica.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/lens_ctrl.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/lens_ctrl.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/lens_ctrl_common.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/lens_ctrl_common.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/main_subject_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/main_subject_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/motion_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/motion_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/motion_detector_sumomo.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/motion_detector_sumomo.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/motion_estimation.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/motion_estimation.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/object_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/object_detector.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/object_tracker.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/object_tracker.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/prc_image_conv.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/prc_image_conv.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_conv_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_conv_bps_abf40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_conv_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_conv_bps_abf40_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_conv_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_conv_bps_bls12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_conv_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_conv_bps_gic30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_conv_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_conv_bps_linearization34.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_conv_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_conv_bps_pdpc30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_conv_parisbrest.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_conv_parisbrest.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_conv_platform.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_conv_platform.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_conv_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_conv_platform_nree.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_bps_abf40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_bps_abf40_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_bps_bls12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_bps_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_bps_demosaic36.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_bps_gic30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_bps_linearization34.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_bps_pdpc30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_anr10_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_anr10_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_anr10_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_anr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_anr10_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_asf30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_cs20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_gra10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_hnr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_hnr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_lenr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_tf20_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_tf20_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_tf20_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_tf20_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_tf20_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_ipe_upscale20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_platform.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_platform.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/raw_proc_platform_nree.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/raw_proc_platform_nree.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_bps_abf40.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_bps_abf40.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_bps_abf40_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_bps_abf40_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_bps_bls12.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_bps_bls12.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_bps_demosaic36.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_bps_demosaic36.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_bps_gic30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_bps_gic30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_bps_linearization34.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_bps_linearization34.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_bps_pdpc30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_bps_pdpc30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_ipe_anr10_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_ipe_anr10_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_ipe_anr10_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_ipe_anr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_ipe_anr10_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_ipe_tf20_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_ipe_tf20_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_ipe_tf20_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_ipe_tf20_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmb_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmb_ipe_tf20_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_anr10_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_anr10_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_anr10_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_anr10_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_anr10_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_anr10_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_anr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_anr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_anr10_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_anr10_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_asf30.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_asf30.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_cs20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_cs20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_gra10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_gra10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_hnr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_hnr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_hnr10_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_hnr10_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_lenr10.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_lenr10.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_tf20_dc04.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_tf20_dc04.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_tf20_dc16.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_tf20_dc16.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_tf20_dc64.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_tf20_dc64.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_tf20_disable.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_tf20_disable.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_tf20_full.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_tf20_full.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/rpmp_ipe_upscale20.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/rpmp_ipe_upscale20.dat \
+    vendor/sony/pdx206/proprietary/vendor/camera/SEM20BS1/scene_detector.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SEM20BS1/scene_detector.dat \
     vendor/sony/pdx206/proprietary/vendor/camera/SODA_HMN_BN0010-0001:$(TARGET_COPY_OUT_VENDOR)/camera/SODA_HMN_BN0010-0001 \
     vendor/sony/pdx206/proprietary/vendor/camera/SUNHQCN1/dataflow.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SUNHQCN1/dataflow.dat \
     vendor/sony/pdx206/proprietary/vendor/camera/SUNHQCN1/depth_comp.dat:$(TARGET_COPY_OUT_VENDOR)/camera/SUNHQCN1/depth_comp.dat \
@@ -992,7 +976,6 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/etc/acdbdata/workspaceFile_Sony_edo.qwsp:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/workspaceFile_Sony_edo.qwsp \
     vendor/sony/pdx206/proprietary/vendor/etc/cacert_location.pem:$(TARGET_COPY_OUT_VENDOR)/etc/cacert_location.pem \
     vendor/sony/pdx206/proprietary/vendor/etc/camera/camxoverridesettings.txt:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camxoverridesettings.txt \
-    vendor/sony/pdx206/proprietary/vendor/etc/change.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/change.cfg \
     vendor/sony/pdx206/proprietary/vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/cne/wqeclient/ATT/ATT_profile1.xml \
     vendor/sony/pdx206/proprietary/vendor/etc/cne/wqeclient/ATT/ATT_profile2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/cne/wqeclient/ATT/ATT_profile2.xml \
     vendor/sony/pdx206/proprietary/vendor/etc/cne/wqeclient/ATT/ATT_profile3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/cne/wqeclient/ATT/ATT_profile3.xml \
@@ -1058,7 +1041,7 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/etc/init/android.hardware.authsecret@1.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.authsecret@1.0-service-qti.rc \
     vendor/sony/pdx206/proprietary/vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-rbs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.biometrics.fingerprint@2.1-service-rbs.rc \
     vendor/sony/pdx206/proprietary/vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.bluetooth@1.0-service-qti.rc \
-    vendor/sony/pdx206/proprietary/vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm@1.1-service.widevine.rc \
+    vendor/sony/pdx206/proprietary/vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm@1.2-service.widevine.rc \
     vendor/sony/pdx206/proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc \
     vendor/sony/pdx206/proprietary/vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gnss@2.0-service-qti.rc \
     vendor/sony/pdx206/proprietary/vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.keymaster@4.0-service-qti.rc \
@@ -1100,7 +1083,7 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/etc/init/vendor.qti.rmt_storage.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.rmt_storage.rc \
     vendor/sony/pdx206/proprietary/vendor/etc/init/vendor.qti.tftp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.tftp.rc \
     vendor/sony/pdx206/proprietary/vendor/etc/init/vendor.semc.hardware.display@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.semc.hardware.display@1.2-service.rc \
-    vendor/sony/pdx206/proprietary/vendor/etc/init/vendor.semc.hardware.secd@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.semc.hardware.secd@1.0-service.rc \
+    vendor/sony/pdx206/proprietary/vendor/etc/init/vendor.semc.hardware.secd@1.1-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.semc.hardware.secd@1.1-service.rc \
     vendor/sony/pdx206/proprietary/vendor/etc/init/vendor.semc.hardware.thermal@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.semc.hardware.thermal@1.0-service.rc \
     vendor/sony/pdx206/proprietary/vendor/etc/init/vendor.semc.system.idd@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.semc.system.idd@1.0-service.rc \
     vendor/sony/pdx206/proprietary/vendor/etc/init/vendor.somc.hardware.camera.provider@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.somc.hardware.camera.provider@1.0-service.rc \
@@ -1140,7 +1123,6 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/etc/sensors/config/kona_ak991x_0.json:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/config/kona_ak991x_0.json \
     vendor/sony/pdx206/proprietary/vendor/etc/sensors/config/kona_ak991x_0_somc_platform.json:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/config/kona_ak991x_0_somc_platform.json \
     vendor/sony/pdx206/proprietary/vendor/etc/sensors/config/kona_ak991x_0_somc_product.json:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/config/kona_ak991x_0_somc_product.json \
-    vendor/sony/pdx206/proprietary/vendor/etc/sensors/config/kona_amd_sw_disabled.json:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/config/kona_amd_sw_disabled.json \
     vendor/sony/pdx206/proprietary/vendor/etc/sensors/config/kona_bmp380_0.json:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/config/kona_bmp380_0.json \
     vendor/sony/pdx206/proprietary/vendor/etc/sensors/config/kona_bu52053nvx_0.json:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/config/kona_bu52053nvx_0.json \
     vendor/sony/pdx206/proprietary/vendor/etc/sensors/config/kona_default_sensors.json:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/config/kona_default_sensors.json \
@@ -1805,7 +1787,6 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/lib/rfsa/adsp/capi_v2_aptX_CLHDADV_Encoder.so:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/capi_v2_aptX_CLHDADV_Encoder.so \
     vendor/sony/pdx206/proprietary/vendor/lib/rfsa/adsp/capi_v2_aptX_CLHDAD_Speech_Decoder.so:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/capi_v2_aptX_CLHDAD_Speech_Decoder.so \
     vendor/sony/pdx206/proprietary/vendor/lib/rfsa/adsp/libapps_mem_heap.so:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/libapps_mem_heap.so \
-    vendor/sony/pdx206/proprietary/vendor/lib/rfsa/adsp/libbitml_nsp_skel.so:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/libbitml_nsp_skel.so \
     vendor/sony/pdx206/proprietary/vendor/lib/rfsa/adsp/libcamera_nn_skel.so:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/libcamera_nn_skel.so \
     vendor/sony/pdx206/proprietary/vendor/lib/rfsa/adsp/libcvpdsp_skel.so:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/libcvpdsp_skel.so \
     vendor/sony/pdx206/proprietary/vendor/lib/rfsa/adsp/libdspCV_skel.so:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/libdspCV_skel.so \
@@ -1918,11 +1899,9 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/lib/vendor.qti.imsrtpservice@2.1-service-Impl.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.qti.imsrtpservice@2.1-service-Impl.so \
     vendor/sony/pdx206/proprietary/vendor/lib/vendor.qti.imsrtpservice@2.1.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.qti.imsrtpservice@2.1.so \
     vendor/sony/pdx206/proprietary/vendor/lib/vendor.qti.latency@2.0.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.qti.latency@2.0.so \
-    vendor/sony/pdx206/proprietary/vendor/lib/vendor.semc.hardware.light@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.semc.hardware.light@1.0.so \
     vendor/sony/pdx206/proprietary/vendor/lib/vendor.semc.system.idd@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.semc.system.idd@1.0.so \
-    vendor/sony/pdx206/proprietary/vendor/lib/vendor.somc.hardware.miscta@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.somc.hardware.miscta@1.0.so \
     vendor/sony/pdx206/proprietary/vendor/lib/vendor.somc.hardware.radio@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.somc.hardware.radio@1.0.so \
-    vendor/sony/pdx206/proprietary/vendor/lib/vendor.somc.hardware.security.secd@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.somc.hardware.security.secd@1.0.so \
+    vendor/sony/pdx206/proprietary/vendor/lib/vendor.somc.hardware.security.secd@1.1.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.somc.hardware.security.secd@1.1.so \
     vendor/sony/pdx206/proprietary/vendor/lib/vendor.somc.hardware.swiqi@1.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.somc.hardware.swiqi@1.0-impl.so \
     vendor/sony/pdx206/proprietary/vendor/lib/vendor.somc.hardware.swiqi@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.somc.hardware.swiqi@1.0.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/android.hardware.sensors@2.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/android.hardware.sensors@2.0-impl.so \
@@ -1972,10 +1951,6 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/lib64/camera/com.qti.tuned.sunny_imx519.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.qti.tuned.sunny_imx519.bin \
     vendor/sony/pdx206/proprietary/vendor/lib64/camera/com.qti.tuned.sunny_s5k5e9yu05.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.qti.tuned.sunny_s5k5e9yu05.bin \
     vendor/sony/pdx206/proprietary/vendor/lib64/camera/com.qti.tuned.truly_imx476.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.qti.tuned.truly_imx476.bin \
-    vendor/sony/pdx206/proprietary/vendor/lib64/camera/com.sony.sensormodule.eiger_imx363.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.sony.sensormodule.eiger_imx363.bin \
-    vendor/sony/pdx206/proprietary/vendor/lib64/camera/com.sony.sensormodule.eiger_imx557.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.sony.sensormodule.eiger_imx557.bin \
-    vendor/sony/pdx206/proprietary/vendor/lib64/camera/com.sony.sensormodule.eiger_s5k3t2.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.sony.sensormodule.eiger_s5k3t2.bin \
-    vendor/sony/pdx206/proprietary/vendor/lib64/camera/com.sony.sensormodule.icarus_imx316.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.sony.sensormodule.icarus_imx316.bin \
     vendor/sony/pdx206/proprietary/vendor/lib64/camera/com.sony.sensormodule.rose_s5k4h7.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.sony.sensormodule.rose_s5k4h7.bin \
     vendor/sony/pdx206/proprietary/vendor/lib64/camera/components/com.qti.camx.chiiqutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/components/com.qti.camx.chiiqutils.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/camera/components/com.qti.eisv2.so:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/components/com.qti.eisv2.so \
@@ -2285,7 +2260,6 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/lib64/libmm-hdcpmgr.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libmm-hdcpmgr.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libmmcamera_faceproc.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libmmcamera_faceproc.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libmmcamera_faceproc2.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libmmcamera_faceproc2.so \
-    vendor/sony/pdx206/proprietary/vendor/lib64/libmmosal.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libmmosal.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libmpbase.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libmpbase.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libmulawdec.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libmulawdec.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libnetmgr.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libnetmgr.so \
@@ -2306,11 +2280,9 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/lib64/libpn557_fw.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libpn557_fw.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libprotobuf-c-idd.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-c-idd.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libqcbor.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqcbor.so \
-    vendor/sony/pdx206/proprietary/vendor/lib64/libqcc_file_agent.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqcc_file_agent.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libqcci_legacy.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqcci_legacy.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libqcmaputils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqcmaputils.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libqcrilFramework.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqcrilFramework.so \
-    vendor/sony/pdx206/proprietary/vendor/lib64/libqcrildatactl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqcrildatactl.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libqdi.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqdi.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libqdma_file_agent.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqdma_file_agent.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libqdp.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqdp.so \
@@ -2337,7 +2309,6 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/lib64/librcc.so:$(TARGET_COPY_OUT_VENDOR)/lib64/librcc.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/librebuffering.so:$(TARGET_COPY_OUT_VENDOR)/lib64/librebuffering.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libril-qc-hal-qmi.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libril-qc-hal-qmi.so \
-    vendor/sony/pdx206/proprietary/vendor/lib64/libril-qc-logger.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libril-qc-logger.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libril-qc-ltedirectdisc.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libril-qc-ltedirectdisc.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libril-qc-qmi-1.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libril-qc-qmi-1.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libril-qc-radioconfig.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libril-qc-radioconfig.so \
@@ -2393,8 +2364,6 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/lib64/libsomc_donutscmnserv.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsomc_donutscmnserv.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libsomc_facewrapper.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsomc_facewrapper.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libsomc_flicker.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsomc_flicker.so \
-    vendor/sony/pdx206/proprietary/vendor/lib64/libsomc_formatconverter.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsomc_formatconverter.so \
-    vendor/sony/pdx206/proprietary/vendor/lib64/libsomc_formatconverterrsc.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsomc_formatconverterrsc.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libsomc_marble.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsomc_marble.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libsomc_marblersc.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsomc_marblersc.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/libsomc_milkyrollserv.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsomc_milkyrollserv.so \
@@ -2469,8 +2438,6 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/lib64/qcrild_librilutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/qcrild_librilutils.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/qtibus.so:$(TARGET_COPY_OUT_VENDOR)/lib64/qtibus.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/qtimutex.so:$(TARGET_COPY_OUT_VENDOR)/lib64/qtimutex.so \
-    vendor/sony/pdx206/proprietary/vendor/lib64/rfsa/adsp/libsns_device_mode_skel.so:$(TARGET_COPY_OUT_VENDOR)/lib64/rfsa/adsp/libsns_device_mode_skel.so \
-    vendor/sony/pdx206/proprietary/vendor/lib64/rfsa/adsp/libsns_low_lat_stream_skel.so:$(TARGET_COPY_OUT_VENDOR)/lib64/rfsa/adsp/libsns_low_lat_stream_skel.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/sensors.ssc.so:$(TARGET_COPY_OUT_VENDOR)/lib64/sensors.ssc.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/soundfx/libasphere.so:$(TARGET_COPY_OUT_VENDOR)/lib64/soundfx/libasphere.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/soundfx/libqcbassboost.so:$(TARGET_COPY_OUT_VENDOR)/lib64/soundfx/libqcbassboost.so \
@@ -2581,7 +2548,7 @@ PRODUCT_COPY_FILES += \
     vendor/sony/pdx206/proprietary/vendor/lib64/vendor.somc.camera.device@3.5-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.somc.camera.device@3.5-impl.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/vendor.somc.hardware.miscta@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.somc.hardware.miscta@1.0.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/vendor.somc.hardware.radio@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.somc.hardware.radio@1.0.so \
-    vendor/sony/pdx206/proprietary/vendor/lib64/vendor.somc.hardware.security.secd@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.somc.hardware.security.secd@1.0.so \
+    vendor/sony/pdx206/proprietary/vendor/lib64/vendor.somc.hardware.security.secd@1.1.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.somc.hardware.security.secd@1.1.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/vendor.somc.hardware.swiqi@1.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.somc.hardware.swiqi@1.0-impl.so \
     vendor/sony/pdx206/proprietary/vendor/lib64/vendor.somc.hardware.swiqi@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.somc.hardware.swiqi@1.0.so \
     vendor/sony/pdx206/proprietary/vendor/radio/qcril_database/qcril.db:$(TARGET_COPY_OUT_VENDOR)/radio/qcril_database/qcril.db \
